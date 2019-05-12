@@ -19,19 +19,23 @@ dbConnection.connect(function(err) {
 });
 
 function mainPrompt() {
+    var resultsArr =[];
     dbConnection.query("select item_id, product_name, price from products", function (err, results) {
         if (err) {
             console.log(err);
         }
         results.forEach(el => {
-            console.log(el.item_id + " " + el.product_name + " $" + el.price);
+            resultsArr.push(el.item_id + " " + el.product_name + " $" + el.price);
+        });
+        inquirer.prompt([
+            {
+                message: "What do you want to buy today?",
+                type: "list",
+                choices: resultsArr,
+                name: "item"
+            }
+        ]).then(answer => {
+            console.log(answer.item);
         });
     });
-    // inquirer.prompt([
-    //     {
-    //         message: "What do you want to buy today?",
-    //         type: "list",
-
-    //     }
-    // ]);
 }
