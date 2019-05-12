@@ -1,3 +1,7 @@
+# Project specific
+homework_instructions.md
+*.csv
+
 # Logs
 logs
 *.log
