@@ -11,6 +11,8 @@ const dbConnection = mysql.createConnection({
     database: "bamazon_db"
 });
 
+console.clear();
+
 //Connect to the DB
 dbConnection.connect(function (err) {
     if (err) throw err;
