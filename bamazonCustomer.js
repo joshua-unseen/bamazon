@@ -115,7 +115,7 @@ function stockUpdate(key, quantity) {
             }
             else {
                 var yourCost = itemPrice * quantity;
-                console.log("We can fulfill that order.  Your cost is $" + yourCost + "\n");
+                console.log("We can fulfill that order.  Your cost is $" + yourCost.toFixed(2) + "\n");
                 dbConnection.query(
                     "update products set stock_quantity = ? where ?",
                     [
